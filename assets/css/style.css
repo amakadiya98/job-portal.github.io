@@ -48,6 +48,7 @@
 /* -------css start here------- */
 body {
   font-family: 'Open Sans';
+  overflow-x: hidden;
 }
 
 .main {
@@ -187,12 +188,17 @@ body {
   color: #B4B7BB;
 }
 
-.dropdown .dropdown-item>.btn.btn-outline-danger.cus-btn {
+.btn.cus-btn {
   font-weight: 600;
   font-family: 'Open sans';
   font-size: 14px;
   line-height: 24px;
   padding: 0.5rem 1.5rem;
+  border-color: #EF5537 !important;
+  color: #EF5537 !important;
+}
+.btn.cus-btn:focus{
+  box-shadow: none;
 }
 
 .dropdown .dropdown-menu.cus-space .dropdown-item {
@@ -458,6 +464,9 @@ color: #78808A;
 .select2-container--default .select2-results__option--highlighted[aria-selected] {
   background-color:#EF5537!important;
   color:white !important;
+}
+.select2-results__option{
+  padding: 8px 12px !important;
 }
 /* 
 .select2-results__option--highlighted .user-div .user-info p, .select2-results__option--highlighted .user-div .user-info  span{

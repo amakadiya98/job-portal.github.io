@@ -240,6 +240,11 @@
             text: '<div style="color:#78808A">Adil</div>',
             html: `<div class="user-div"><div class='user-img'><img src='assets/images/user2.png' alt='user-pic'/></div><div class='user-info'><p>Adil</p><span>example@gmail.com</span></div></div>`,
             title: 'Adil'
+        }, {
+            id: null,
+            text: '<div style="color:#78808A">Create New</div>',
+            html: `<button class="btn cus-btn">Add user</button>`,
+            title: 'Create New'
         }];
 
         console.log($(".select1"))
@@ -260,7 +265,7 @@
 
         function matcher(params, data) {
             // If there are no search terms, return all of the data
-            if ($.trim(params.term) === '') {
+            if ($.trim(params.term) === '' || data.id === null) {
                 return data;
             }
 
@@ -279,6 +284,7 @@
 
                 // You can return modified objects from here
                 // This includes matching the `children` how you want in nested data sets
+                console.log(modifiedData, ' <--- I am modified data...')
                 return modifiedData;
             }
 
