@@ -28,7 +28,7 @@
                                         <label class="form-txt">Project Title <span class="clr-txt">*</span></label>
                                         <input type="text" />
                                         <label class="form-txt">Budget<span class="clr-txt">*</span></label>
-                                        <input type="number" />
+                                        <input type="" />
                                         <label class="form-txt">Duration<span class="clr-txt"></span></label>
                                         <input type="text" />
                                         <div>
@@ -40,7 +40,12 @@
                                                 <option value="3">Three</option>
                                             </select>
                                         </div>
-                                        <div class="dropdown">
+                                        <!-- -- auto suggetion input-- -->
+                                          <label class="form-txt">User<span class="clr-txt"></span></label>
+                                        <select class="select1"></select>
+                                        <!-- -- auto suggetion input-- -->
+
+                                        <!-- <div class="dropdown">
                                             <label class="form-txt">User<span class="clr-txt">*</span></label>
                                             <button class="btn btn-secondary dropdown-toggle plc" type="button"
                                                 data-bs-toggle="dropdown" aria-expanded="false">
@@ -73,7 +78,7 @@
                                                         <button class="btn btn-outline-danger cus-btn">Add user</button>
                                                     </a></li>
                                             </ul>
-                                        </div>
+                                        </div> -->
                                     </div>
                                     <div class=" space col-lg-6">
                                         <div>
@@ -87,8 +92,17 @@
                                         </div>
                                         <label class="form-txt">Deadline<span class="clr-txt">*</span></label>
                                         <input class="plc" type="date" />
-                                        <label class="form-txt">Order ID<span class="clr-txt"></span></label>
-                                        <input type="number" />
+                                        <!-- <label class="form-txt">Order ID<span class="clr-txt"></span></label>
+                                        <input type="number" /> -->
+                                        <div>
+                                            <label class="form-txt">Order ID<span class="clr-txt"></span></label>
+                                            <select class="form-select plc" aria-label="Default select example">
+                                                <option selected class="">Select Order ID</option>
+                                                <option value="1">00001</option>
+                                                <option value="2">00002</option>
+                                                <option value="3">00003</option>
+                                            </select>
+                                        </div>
                                         <div>
                                             <label class="form-txt">Assign To<span class="clr-txt"></span></label>
                                             <select class="form-select plc" aria-label="Default select example">
@@ -99,7 +113,7 @@
                                             </select>
                                         </div>
                                         <label class="form-txt">Invoice Value<span class="clr-txt"></span></label>
-                                        <input type="number" />
+                                        <input type="" />
                                     </div>
                                     <div class=" space col-lg-12">
                                         <div class="mb-3 text-area">
@@ -129,7 +143,7 @@
                                         <label class="form-txt">Job Title <span class="clr-txt">*</span></label>
                                         <input type="text" />
                                         <label class="form-txt">Budget<span class="clr-txt">*</span></label>
-                                        <input type="number" />
+                                        <input class="blank-input" type="" />
                                         <div>
                                             <label class="form-txt">Category<span class="clr-txt"></span></label>
                                             <select class="form-select plc" aria-label="Default select example">
@@ -205,12 +219,73 @@
             </div>
         </div>
     </div>
+
     <script src="./assets/Js/bootstrap.bundle.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.18/dist/js/bootstrap-select.min.js"></script>
 
     <!-- (Optional) Latest compiled and minified JavaScript translation files -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.18/dist/js/i18n/defaults-*.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script>
+    <script>
+        var data = [{
+            id: 0,
+            text: '<div style="color:#78808A">Aditya Vikram</div>',
+            html: `<div class="user-div"><div class='user-img'><img src='assets/images/user1.png' alt='user-pic'/></div><div class='user-info'><p>Aditya Vikram</p><span>example@gmail.com</span></div></div>`,
+            title: 'Aditya Vikram'
+        }, {
+            id: 1,
+            text: '<div style="color:#78808A">Adil</div>',
+            html: `<div class="user-div"><div class='user-img'><img src='assets/images/user2.png' alt='user-pic'/></div><div class='user-info'><p>Adil</p><span>example@gmail.com</span></div></div>`,
+            title: 'Adil'
+        }];
+
+        console.log($(".select1"))
+
+        $(".select1").select2({
+            data: data,
+            escapeMarkup: function (markup) {
+                return markup;
+            },
+            templateResult: function (data) {
+                return data.html;
+            },
+            templateSelection: function (data) {
+                return data.text;
+            },
+            matcher: matcher
+        });
+
+        function matcher(params, data) {
+            // If there are no search terms, return all of the data
+            if ($.trim(params.term) === '') {
+                return data;
+            }
+
+            // Do not display the item if there is no 'text' property
+            if (typeof data.text === 'undefined') {
+                return null;
+            }
+
+            // `params.term` should be the term that is used for searching
+            // `data.text` is the text that is displayed for the data object
+            // `data.html` is the additional / info text, within the option, seen once the dropdown is shown
+            // The search is case insensitive
+            if (data.text.toLowerCase().indexOf(params.term.toLowerCase()) > -1 || (typeof data.html !== 'undefined' && data.html.toLowerCase().indexOf(params.term.toLowerCase()) > -1)) {
+                var modifiedData = $.extend({}, data, true);
+                modifiedData.text += ' (matched)';
+
+                // You can return modified objects from here
+                // This includes matching the `children` how you want in nested data sets
+                return modifiedData;
+            }
+
+            // Return `null` if the term should not be displayed
+            return null;
+        }
+    </script>
 </body>
 
 </html>
