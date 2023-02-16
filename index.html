@@ -10,7 +10,7 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.18/dist/css/bootstrap-select.min.css">
-
+    <!-- <---External css file -->
     <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 
@@ -41,44 +41,34 @@
                                             </select>
                                         </div>
                                         <!-- -- auto suggetion input-- -->
-                                          <label class="form-txt">User<span class="clr-txt"></span></label>
+                                        <label class="form-txt">User<span class="clr-txt"></span></label>
                                         <select class="select1"></select>
                                         <!-- -- auto suggetion input-- -->
-
-                                        <!-- <div class="dropdown">
-                                            <label class="form-txt">User<span class="clr-txt">*</span></label>
-                                            <button class="btn btn-secondary dropdown-toggle plc" type="button"
-                                                data-bs-toggle="dropdown" aria-expanded="false">
-                                                Select user or add user
-                                            </button>
-                                            <ul class="dropdown-menu cus-space">
-                                                <li><a class="dropdown-item" href="#">
-                                                        <div class="user-div">
-                                                            <div class='user-img'>
-                                                                <img src='./assets/images/user1.png' alt='user-pic'>
-                                                            </div>
-                                                            <div class='user-info'>
-                                                                <p>Aditya Vikram</p>
-                                                                <span>example@gmail.com</span>
-                                                            </div>
-                                                        </div>
-                                                    </a></li>
-                                                <li><a class="dropdown-item" href="#">
-                                                        <div class="user-div">
-                                                            <div class='user-img'>
-                                                                <img src='./assets/images/user2.png' alt='user-pic'>
-                                                            </div>
-                                                            <div class='user-info'>
-                                                                <p>Adil</p>
-                                                                <span>adil90@gmail.com</span>
-                                                            </div>
-                                                        </div>
-                                                    </a></li>
-                                                <li><a class="dropdown-item" href="#">
-                                                        <button class="btn btn-outline-danger cus-btn">Add user</button>
-                                                    </a></li>
-                                            </ul>
-                                        </div> -->
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" >
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                <h5 class="modal-title title" id="exampleModalLabel">Add User</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                <form>
+                                                   <div  class="modal-align">
+                                                    <label class="form-txt">Name</label>
+                                                    <input type="text"/>
+                                                    <label class="form-txt">Email</label>
+                                                    <input type="email"/>
+                                                   </div>
+                                                </form>
+                                                </div>
+                                                <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary  cus-btn" data-bs-dismiss="modal">Cancel</button>
+                                                <button type="button" class="btn btn-primary  cus-btn">Add</button>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class=" space col-lg-6">
                                         <div>
@@ -92,8 +82,6 @@
                                         </div>
                                         <label class="form-txt">Deadline<span class="clr-txt">*</span></label>
                                         <input class="plc" type="date" />
-                                        <!-- <label class="form-txt">Order ID<span class="clr-txt"></span></label>
-                                        <input type="number" /> -->
                                         <div>
                                             <label class="form-txt">Order ID<span class="clr-txt"></span></label>
                                             <select class="form-select plc" aria-label="Default select example">
@@ -120,7 +108,8 @@
                                             <label for="exampleFormControlTextarea1" class="form-label form-txt">Project
                                                 description <span class="clr-txt">*</span></label>
                                             <textarea class="form-control" id="exampleFormControlTextarea1"
-                                                rows="3"></textarea>
+                                                rows="3">
+                                            </textarea>
                                         </div>
                                         <div class="chose-file">
                                             <label class="form-txt">Attachment</label>
@@ -163,8 +152,6 @@
                                                 <input class="with-gap" name="group1" type="radio" id="test3" /> <label
                                                     class="yes" for="test3">No</label>
                                             </div>
-
-
                                         </div>
                                     </div>
                                     <div class=" space col-lg-6">
@@ -207,7 +194,8 @@
                                             </div>
                                         </div>
                                         <button class="plus-btn"><img alt="plus-btn"
-                                                src="./assets/images/plus.svg" /></button>
+                                                src="./assets/images/plus.svg" />
+                                        </button>
                                         <button class="submit-btn">Create Project</button>
                                     </div>
                                 </div>
@@ -238,16 +226,23 @@
         }, {
             id: 1,
             text: '<div style="color:#78808A">Adil</div>',
-            html: `<div class="user-div"><div class='user-img'><img src='assets/images/user2.png' alt='user-pic'/></div><div class='user-info'><p>Adil</p><span>example@gmail.com</span></div></div>`,
+            html: `<div id="someId" class="user-div"><div class='user-img'><img src='assets/images/user2.png' alt='user-pic'/></div><div class='user-info'><p>Adil</p><span>example@gmail.com</span></div></div>`,
             title: 'Adil'
         }, {
             id: null,
             text: '<div style="color:#78808A">Create New</div>',
-            html: `<button class="btn cus-btn">Add user</button>`,
+            html: `<button type="button" data-bs-target="#exampleModal" data-bs-toggle="modal" class="btn cus-btn" onClick="changeId()"  id="addEventsButton">Add user</button>`,
             title: 'Create New'
         }];
 
-        console.log($(".select1"))
+
+let changeId = ( ) => {
+    console.log("Clicked")
+    $(".select1").select2("close")
+
+}
+        
+        
 
         $(".select1").select2({
             data: data,
@@ -262,6 +257,11 @@
             },
             matcher: matcher
         });
+
+
+       
+
+        
 
         function matcher(params, data) {
             // If there are no search terms, return all of the data
@@ -291,6 +291,7 @@
             // Return `null` if the term should not be displayed
             return null;
         }
+        
     </script>
 </body>
 
