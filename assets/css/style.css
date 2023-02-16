@@ -493,7 +493,12 @@ body {
   background-repeat: no-repeat;
   background-position: 98%;
 }
-
+.auto-suggest{
+  margin-bottom: 18px;
+}
+.select2-container{
+  width: 100% !important;
+}
 .select2-container--default .select2-selection--single .select2-selection__arrow{
   border: 0;
   background: url('../images/down-arrow.png');
@@ -541,7 +546,7 @@ body {
 }
 
 @media screen and (max-width:420px) {
-  .project-form .plc {
+  .project-form .plc, .select2-container--default .select2-selection--single .select2-selection__rendered {
     font-size: 11px;
   }
 
