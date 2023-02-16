@@ -1,0 +1,49 @@
+/* manager project page css start here */
+.project-form .tabel-start{
+    padding: 24px;
+  }
+  
+  .project-form .mb{
+    border-bottom: 1px solid #E8EFF6;
+    padding: 17px 30px;
+  }
+  
+  .project-form .input-main{
+    position: relative;
+  }
+  
+  .project-form .input-main input{
+    width: 40%;
+    padding: 10px 48px;
+    border-radius: 6px;
+    border: 1px solid #F5F8FF;
+  }
+  
+  .project-form .input-main input::placeholder{
+    font-size: 14px;
+    font-weight: 600;
+    color: #B4B4B4;
+  }
+  
+  .project-form  input{
+    color: #78808A;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  .project-form .input-main input[type=search]:focus-visible{
+      border: 1px solid #EF5537;
+      outline:none;
+  }
+  
+  
+  .project-form .search-icon{
+    position: absolute;
+    bottom: 50%;
+    left: 22px;
+  }
+  
+  
+  
+  
+  /* manager project page css start end */
