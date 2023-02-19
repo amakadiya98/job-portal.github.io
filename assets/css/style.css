@@ -92,7 +92,7 @@ body {
   border-radius: 20px;
 }
 
-.project-form form {
+.project-form .form-part {
   padding: 15px 22px 0px 22px;
   width:100%;
 }
@@ -357,7 +357,7 @@ body {
   margin-bottom: 0;
 }
 
-.project-form .file-input {
+.project-form .file-input, #myFiles {
   display: none;
 }
 
@@ -590,4 +590,34 @@ body {
 /* responsice css end here */
 
 
+/* .filenames:first-child:nth-last-child(2){
+  display: none;
+} */
+#fileList, #fileList2{
+  margin-bottom: 0;
+}
+#fileList li, #fileList2 li{
+ list-style-type: none;
+ display: flex;
+ align-items: center;
+ margin-bottom: 8px;
+}
 
+#fileList li span, #fileList2 li span{
+  font-size: 14px;
+  font-weight: 600;
+  color: #78808A;
+}
+.remove-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  margin-left: 2px;
+}
+
+.remove-button:before {
+  content: "\00d7";
+  color: #ff0000;
+}
