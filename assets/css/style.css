@@ -625,3 +625,49 @@ body {
 #main_job{
   margin-top: 30px;
 }
+
+.user-profile-img{
+  width: 36px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.user-remove-btn{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  margin-left: 6px;
+}
+.user-inner-profile{
+  display: flex;
+  align-items: center;
+}
+.user-remove-btn:before {
+  content: "\00d7";
+  color:#78808A;
+}
+.auto-suggest{
+  margin-top: -4px;
+}
+.select2-container--default .select2-selection--multiple {
+  border-radius: 4px;
+  cursor: text;
+  border: 1px solid #DDE1E5 !important;
+  border-radius: 8px !important;
+  padding: -9px 10px;
+  margin-bottom: 18px;
+  height: 52px;
+}
+.select2-selection__choice{
+  display: flex !important;
+    align-items: center !important;
+    background-color: transparent !important;
+    border: 0 !important;
+}
+.select2-selection__choice__remove{
+  order: 1;
+    margin-left: 5px;
+    font-size: 20px;
+    font-weight: 400;
+}

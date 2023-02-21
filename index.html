@@ -45,7 +45,7 @@
                                         <!-- -- auto suggetion input-- -->
                                         <div class="auto-suggest">
                                             <label class="form-txt">User<span class="clr-txt"></span></label>
-                                            <select class="select1" name="project_user_id"></select>
+                                            <select class="select1" id="dynamicAttributes" name="project_user_id" multiple="multiple"></select>
                                         </div>
                                         <!-- -- auto suggetion input-- -->
                                         <!-- Modal -->
@@ -253,12 +253,12 @@
 
         var data = [{
             id: 0,
-            text: '<div style="color:#78808A">Aditya Vikram</div>',
-            html: `<div class="user-div"><div class='user-img'><img src='assets/images/user1.png' alt='user-pic'/></div><div class='user-info'><p>Aditya Vikram</p><span>example@gmail.com</span></div></div>`,
+            text: `<div style="color:#78808A" class="user-inner-profile"><img src='assets/images/user1.png' alt='user-pic' class="user-profile-img"/>Aditya Vikram</div>`,
+            html: `<div class="user-div"><div class='user-img'><img src='assets/images/user1.png' alt='user-pic'/></div><div class='user-info'><p>Aditya Vikram</p><span>@gmail.com</span></div></div>`,
             title: 'Aditya Vikram'
         }, {
             id: 1,
-            text: '<div style="color:#78808A">Adil</div>',
+            text: `<div style="color:#78808A" class="user-inner-profile"><img src='assets/images/user2.png' alt='user-pic' class="user-profile-img"/>Adil</div>`,
             html: `<div id="someId" class="user-div"><div class='user-img'><img src='assets/images/user2.png' alt='user-pic'/></div><div class='user-info'><p>Adil</p><span>example@gmail.com</span></div></div>`,
             title: 'Adil'
         }, {
@@ -290,7 +290,23 @@
             },
             matcher: matcher
         });
+        $(document).ready(function(){
+    
+    // $('#dynamicAttributes').select2({
+    //     allowClear: true,
+    //     minimumResultsForSearch: -1,
+    //     width: 500
+    // });
+             
+    // $("select").on("select2:select", function(evt) {
+    //     var element = evt.params.data.element;
+    //     var $element = $(element);
+    //     $element.detach();
+    //     $(this).append($element);
+    //     $(this).trigger("change");
+    // });
 
+});
 
 
 
