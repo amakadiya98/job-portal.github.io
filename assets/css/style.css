@@ -621,3 +621,7 @@ body {
   content: "\00d7";
   color: #ff0000;
 }
+
+#main_job{
+  margin-top: 30px;
+}

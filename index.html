@@ -19,7 +19,8 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <form class="project-form">
+                    <form class="project-form" action="result.php" enctype="multipart/form-data" method="post" accept-charset="utf-8">
+
                         <!-- project creation form -->
                         <div class="form-part specific-project-form">
                             <h3 class="title">Project details</h3>
@@ -27,14 +28,14 @@
                                 <div class=" top-space row">
                                     <div class=" space col-lg-6">
                                         <label class="form-txt">Project Title <span class="clr-txt">*</span></label>
-                                        <input type="text" />
+                                        <input type="text" name="project_title" required />
                                         <label class="form-txt">Budget<span class="clr-txt">*</span></label>
-                                        <input type="" />
+                                        <input type="number" name="project_budget" required />
                                         <label class="form-txt">Duration<span class="clr-txt"></span></label>
-                                        <input type="text" />
+                                        <input type="text" name="project_duration" />
                                         <div>
                                             <label class="form-txt">Sales Team<span class="clr-txt"></span></label>
-                                            <select class="form-select plc" aria-label="Default select example">
+                                            <select class="form-select plc" aria-label="Default select example" name="project_sales_team">
                                                 <option selected class=""> Select Sales Team</option>
                                                 <option value="1">One</option>
                                                 <option value="2">Two</option>
@@ -44,7 +45,7 @@
                                         <!-- -- auto suggetion input-- -->
                                         <div class="auto-suggest">
                                             <label class="form-txt">User<span class="clr-txt"></span></label>
-                                            <select class="select1"></select>
+                                            <select class="select1" name="project_user_id"></select>
                                         </div>
                                         <!-- -- auto suggetion input-- -->
                                         <!-- Modal -->
@@ -81,7 +82,7 @@
                                     <div class="space col-lg-6">
                                         <div>
                                             <label class="form-txt">Package<span class="clr-txt"></span></label>
-                                            <select class="form-select plc" aria-label="Default select example">
+                                            <select class="form-select plc" aria-label="Default select example" name="project_package">
                                                 <option selected class="">Select Package</option>
                                                 <option value="1">One</option>
                                                 <option value="2">Two</option>
@@ -89,10 +90,10 @@
                                             </select>
                                         </div>
                                         <label class="form-txt">Deadline<span class="clr-txt">*</span></label>
-                                        <input class="plc" type="date" />
+                                        <input class="plc" type="date" name="project_deadline" required />
                                         <div>
                                             <label class="form-txt">Order ID<span class="clr-txt"></span></label>
-                                            <select class="form-select plc" aria-label="Default select example">
+                                            <select class="form-select plc" aria-label="Default select example" name="project_order_id">
                                                 <option selected class="">Select Order ID</option>
                                                 <option value="1">00001</option>
                                                 <option value="2">00002</option>
@@ -101,7 +102,7 @@
                                         </div>
                                         <div>
                                             <label class="form-txt">Assign To<span class="clr-txt"></span></label>
-                                            <select class="form-select plc" aria-label="Default select example">
+                                            <select class="form-select plc" aria-label="Default select example" name="project_assign_to">
                                                 <option selected class="">Select Manager</option>
                                                 <option value="1">One</option>
                                                 <option value="2">Two</option>
@@ -109,21 +110,19 @@
                                             </select>
                                         </div>
                                         <label class="form-txt">Invoice Value<span class="clr-txt"></span></label>
-                                        <input type="" />
+                                        <input type="" name="project_invoice_value" />
                                     </div>
                                     <div class=" space col-lg-12">
                                         <div class="mb-3 text-area">
                                             <label for="exampleFormControlTextarea1" class="form-label form-txt">Project
                                                 description <span class="clr-txt">*</span></label>
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">
-                                            </textarea>
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="project_description"></textarea>
                                         </div>
                                         <div class="chose-file">
                                             <label class="form-txt">Attachment</label>
                                             <div class="chose-btn-align">
                                                 <label for="myFiles" class="file-label plc">Choose a file</label>
-                                                <input type="file" class="file-input" id="myFiles" name="files"
-                                                    multiple>
+                                                <input type="file" class="file-input" id="myFiles" name="project_files[]" multiple>
                                                 <ul id="fileList">
                                                     <li class="no-of-file form-txt">No file choosen</li>
                                                 </ul>
@@ -133,95 +132,93 @@
                                 </div>
                             </div>
                         </div>
-                        <!----- job selection form ------->
-                        <div class="form-part job1">
-                            <div class="job-number-title">
-                                <h3 class="title job1">Job 1</h3>
-                                <button class="btn job-remove-btn">
-                                    <img src="./assets/images/minus.png" alt="remove">
-                                </button>
-                            </div>
-                            <div class="container-fluid">
-                                <div class=" top-space row">
-                                    <div class=" space col-lg-6">
-                                        <label class="form-txt">Job Title <span class="clr-txt">*</span></label>
-                                        <input type="text" />
-                                        <label class="form-txt">Budget<span class="clr-txt">*</span></label>
-                                        <input class="blank-input" type="" />
-                                        <div>
-                                            <label class="form-txt">Category<span class="clr-txt"></span></label>
-                                            <select class="form-select plc" aria-label="Default select example">
-                                                <option selected class=""> Select category</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
-                                            </select>
-                                        </div>
-                                        <label class="form-txt">Job Lock Status<span class="clr-txt"></span></label>
-                                        <div class="form-txt radio-clr">
-                                            <div class="radio-button-yes radio-custom">
-                                                <input class="with-gap" name="group1" type="radio" id="test3" /> <label
-                                                    class="yes" for="test3">Yes</label>
-                                            </div>
-                                            <div class="radio-button-no radio-custom">
-                                                <input class="with-gap" name="group1" type="radio" id="test3" /> <label
-                                                    class="yes" for="test3">No</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class=" space col-lg-6">
-                                        <label class="form-txt">Duration<span class="clr-txt"></span></label>
-                                        <input type="text" />
-                                        <label class="form-txt">Deadline<span class="clr-txt">*</span></label>
-                                        <input class="plc" type="date" />
-                                        <div>
-                                            <label class="form-txt">Language<span class="clr-txt"></span></label>
-                                            <select class="form-select plc" aria-label="Default select example">
-                                                <option selected class=""> Select Language</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
-                                            </select>
-                                        </div>
-                                        <div>
-                                            <label class="form-txt">Auto Unlock<span class="clr-txt"></span></label>
-                                            <select class="form-select plc" aria-label="Default select example">
-                                                <option selected class="">Select milestone</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class=" space col-lg-12">
-                                        <div class="mb-3 text-area">
-                                            <label for="exampleFormControlTextarea1" class="form-label form-txt">Job
-                                                detail<span class="clr-txt"></span></label>
-                                            <textarea class="form-control" id="exampleFormControlTextarea1"
-                                                rows="3"></textarea>
-                                        </div>
-                                        <div class="chose-file">
-                                            <label class="form-txt">Attachment</label>
-                                            <div class="chose-btn-align">
-                                                <label for="myFiles2" class="file-label plc">Choose a file</label>
-                                                <input type="file" class="file-input" id="myFiles2" name="files"
-                                                    multiple>
-                                                <ul id="fileList2">
-                                                    <li class="no-of-file form-txt">No file choosen</li>
-                                                </ul>
-                                            </div>
-                                        </div>
 
+                        <!----- job selection form ------->
+                        <div id="job_section">
+                            <div class="form-part job1">
+                                <div class="job-number-title">
+                                    <h3 class="title job1">Job</h3>
+                                    <button type="button" class="btn job-remove-btn" onclick="return RemoveJobForm(this)">
+                                        <img src="./assets/images/minus.png" alt="remove">
+                                    </button>
+                                </div>
+                                <div class="container-fluid">
+                                    <div class=" top-space row">
+                                        <div class=" space col-lg-6">
+                                            <label class="form-txt">Job Title <span class="clr-txt">*</span></label>
+                                            <input type="text" name="job_title_1" required />
+                                            <label class="form-txt">Budget<span class="clr-txt">*</span></label>
+                                            <input class="blank-input" type="number" name="job_budget_1" required />
+                                            <div>
+                                                <label class="form-txt">Category<span class="clr-txt"></span></label>
+                                                <select class="form-select plc" aria-label="Default select example" name="job_category_1">
+                                                    <option selected class=""> Select category</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+                                            </div>
+                                            <label class="form-txt">Job Lock Status<span class="clr-txt"></span></label>
+                                            <div class="form-txt radio-clr">
+                                                <div class="radio-button-yes radio-custom">
+                                                    <input class="with-gap" name="job_lock_status_1" type="radio" id="test3" value="1" /> <label class="yes" for="test3">Yes</label>
+                                                </div>
+                                                <div class="radio-button-no radio-custom">
+                                                    <input class="with-gap" name="job_lock_status_1" type="radio" id="test3" value="0" /> <label class="yes" for="test3">No</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class=" space col-lg-6">
+                                            <label class="form-txt">Duration<span class="clr-txt"></span></label>
+                                            <input type="text" name="job_duration_1" />
+                                            <label class="form-txt">Deadline<span class="clr-txt">*</span></label>
+                                            <input class="plc" type="date" name="job_deadline_1" required />
+                                            <div>
+                                                <label class="form-txt">Language<span class="clr-txt"></span></label>
+                                                <select class="form-select plc" aria-label="Default select example" name="job_language_1">
+                                                    <option selected class=""> Select Language</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <label class="form-txt">Auto Unlock<span class="clr-txt"></span></label>
+                                                <select class="form-select plc" aria-label="Default select example" name="job_auto_unlock_1">
+                                                    <option selected class="">Select milestone</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class=" space col-lg-12">
+                                            <div class="mb-3 text-area">
+                                                <label for="exampleFormControlTextarea1" class="form-label form-txt">Job detail<span class="clr-txt"></span></label>
+                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="job_description_1"></textarea>
+                                            </div>
+                                            <div class="chose-file">
+                                                <label class="form-txt">Attachment</label>
+                                                <div class="chose-btn-align">
+                                                    <label for="myFiles1" class="file-label plc">Choose a file</label>
+                                                    <input type="file" class="file-input" id="myFiles1" name="job_files_1[]" multiple onchange="onChange(1)">
+                                                    <ul id="fileList1">
+                                                        <li class="no-of-file form-txt">No file choosen</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                         <!-- submit job-form button -->
                         <div class="submit-btn-part">
                             <div class="row">
                                 <div class="col-12">
-                                    <button class="plus-btn w-100 mt-2"><img alt="plus-btn"
-                                            src="./assets/images/plus.svg" />
+                                    <button type="button" class="plus-btn w-100 mt-2" onclick="return AddJobForm();"><img alt="plus-btn" src="./assets/images/plus.svg" />
                                     </button>
                                 </div>
                             </div>
@@ -328,49 +325,162 @@
             return null;
         }
 
-        $('#myFiles').on('change', function () {
-            var selectedFiles = $(this).get(0).files;
+        function setFilesToTheList(selectedFiles) {
+            const fileThis = $('#myFiles').get(0);
             var fileList = $('#fileList');
             fileList.empty();
             for (var i = 0; i < selectedFiles.length; i++) {
                 var listItem = $('<li>');
                 var fileName = $('<span>', { text: selectedFiles[i].name });
-                var removeButton = $('<button>', { class: 'remove-button' });
-                removeButton.on('click', function () {
-                    $(this).closest('li').remove();
+                var removeButton = $('<button>', { class: 'remove-button', id: i });
+                removeButton.on('click', function (e) {
+                    e.preventDefault()
+                    const dt = new DataTransfer();
+                    let files = [...fileThis.files]
+                    files.splice(parseInt($(this).attr('id')), 1)
+                    for(let file of files) {
+                        dt.items.add(file)
+                    }
+                    fileThis.files = dt.files
+                    setFilesToTheList(fileThis.files)
+                    console.log(fileThis.files, ' <== updated file set')
                 });
                 listItem.append(fileName, removeButton);
                 fileList.append(listItem);
             }
-        });
-        $('#removeSelected').on('click', function () {
-            var selectedItems = $('#fileList input:checked');
-            selectedItems.each(function () {
-                $(this).closest('li').remove();
-            });
+        }
+
+        $('#myFiles').on('change', function () {
+            var selectedFiles = $(this).get(0).files;
+            setFilesToTheList(selectedFiles)
         });
 
-        $('#myFiles2').on('change', function () {
-            var selectedFiles = $(this).get(0).files;
-            var fileList = $('#fileList2');
+
+        function setFilesToTheList2(selectedFiles, index) {
+            const fileThis = $('.file-input').get(index);
+            var fileList = $('#fileList'+index);
             fileList.empty();
             for (var i = 0; i < selectedFiles.length; i++) {
                 var listItem = $('<li>');
                 var fileName = $('<span>', { text: selectedFiles[i].name });
-                var removeButton = $('<button>', { class: 'remove-button' });
-                removeButton.on('click', function () {
-                    $(this).closest('li').remove();
+                var removeButton = $('<button>', { class: 'remove-button', id: `${index}_${i}` });
+                removeButton.on('click', function (e) {
+                    e.preventDefault()
+                    const dt = new DataTransfer();
+                    let files = [...fileThis.files]
+                    files.splice(parseInt($(this).attr('id').split('_')[1]), 1)
+                    for(let file of files) {
+                        dt.items.add(file)
+                    }
+                    fileThis.files = dt.files
+                    setFilesToTheList2(fileThis.files, index)
+                    console.log(fileThis.files, ' <== updated file set')
                 });
                 listItem.append(fileName, removeButton);
                 fileList.append(listItem);
             }
-        });
-        $('#removeSelected').on('click', function () {
-            var selectedItems = $('#fileList2 input:checked');
-            selectedItems.each(function () {
-                $(this).closest('li').remove();
-            });
-        });
+        }
+
+        // $('#myFiles2').on('change', function () {
+        //     var selectedFiles = $(this).get(0).files;
+        //     setFilesToTheList2(selectedFiles)
+        // });
+
+        function onChange (index) {
+            console.log(index, ' <=== selected files..')
+            var selectedFiles = $('#myFiles'+index).get(0).files;
+            setFilesToTheList2(selectedFiles, index)
+        }
+
+        var JobID = 1;
+        function AddJobForm(){
+            JobID++;
+            var JobFormContent = `<div id="main_job" class="form-part job1">
+                                    <div class="job-number-title">
+                                        <h3 class="title job1">Job</h3>
+                                        <button type="button" class="btn job-remove-btn" onclick="return RemoveJobForm(this)">
+                                            <img src="./assets/images/minus.png" alt="remove">
+                                        </button>
+                                    </div>
+                                    <div class="container-fluid">
+                                        <div class=" top-space row">
+                                            <div class=" space col-lg-6">
+                                                <label class="form-txt">Job Title <span class="clr-txt">*</span></label>
+                                                <input type="text" name="job_title_`+JobID+`" required />
+                                                <label class="form-txt">Budget<span class="clr-txt">*</span></label>
+                                                <input class="blank-input" type="number" name="job_budget_`+JobID+`" required />
+                                                <div>
+                                                    <label class="form-txt">Category<span class="clr-txt"></span></label>
+                                                    <select class="form-select plc" aria-label="Default select example" name="job_category_`+JobID+`">
+                                                        <option selected class=""> Select category</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                                                </div>
+                                                <label class="form-txt">Job Lock Status<span class="clr-txt"></span></label>
+                                                <div class="form-txt radio-clr">
+                                                    <div class="radio-button-yes radio-custom">
+                                                        <input class="with-gap" name="job_lock_status_`+JobID+`" type="radio" id="test3" value="1" /> <label class="yes" for="test3">Yes</label>
+                                                    </div>
+                                                    <div class="radio-button-no radio-custom">
+                                                        <input class="with-gap" name="job_lock_status_`+JobID+`" type="radio" id="test3" value="0" /> <label class="yes" for="test3">No</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class=" space col-lg-6">
+                                                <label class="form-txt">Duration<span class="clr-txt"></span></label>
+                                                <input type="text" name="job_duration_`+JobID+`" />
+                                                <label class="form-txt">Deadline<span class="clr-txt">*</span></label>
+                                                <input class="plc" type="date" name="job_deadline_`+JobID+`" required />
+                                                <div>
+                                                    <label class="form-txt">Language<span class="clr-txt"></span></label>
+                                                    <select class="form-select plc" aria-label="Default select example" name="job_language_`+JobID+`">
+                                                        <option selected class=""> Select Language</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                                                </div>
+                                                <div>
+                                                    <label class="form-txt">Auto Unlock<span class="clr-txt"></span></label>
+                                                    <select class="form-select plc" aria-label="Default select example" name="job_auto_unlock_`+JobID+`">
+                                                        <option selected class="">Select milestone</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class=" space col-lg-12">
+                                                <div class="mb-3 text-area">
+                                                    <label for="exampleFormControlTextarea1" class="form-label form-txt">Job detail<span class="clr-txt"></span></label>
+                                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="job_description_`+JobID+`"></textarea>
+                                                </div>
+                                                <div class="chose-file">
+                                                    <label class="form-txt">Attachment</label>
+                                                    <div class="chose-btn-align">
+                                                        <label for="myFiles`+JobID+`" class="file-label plc">Choose a file</label>
+                                                        <input type="file" class="file-input" id="myFiles`+JobID+`" name="job_files_`+JobID+`[]" multiple onchange="onChange(`+ JobID +`)">
+                                                        <ul id="fileList`+JobID+`">
+                                                            <li class="no-of-file form-txt">No file choosen</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>`;
+            $( "#job_section" ).append(JobFormContent);
+            return false;
+        }
+
+        function RemoveJobForm(e){
+            $(e).parent().parent().remove()
+        }
+
     </script>
 </body>
 
